@@ -31,6 +31,9 @@ const AuthModal = ({ isOpen, onClose }) => {
         const { error } = await supabase.auth.signUp({
           email,
           password,
+          options: {
+              emailRedirectTo: "https://resume-builder-seven-gamma-75.vercel.app"
+             }
         });
         if (error) throw error;
         setSuccess(true);
